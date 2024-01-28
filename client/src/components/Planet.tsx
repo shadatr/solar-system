@@ -27,7 +27,7 @@ const Planet = ({ user, fetchUser, planet_name }) => {
       {!user && (
         <Html>
           <a
-            href={`/api/auth/google`}
+            href={`/auth/google`}
             style={{
               position: "absolute",
               top: "50%",
@@ -36,7 +36,10 @@ const Planet = ({ user, fetchUser, planet_name }) => {
               width: "300px",
             }}
           >
-            <button className="bg-secondary w-[300px]  bg-opacity-40 p-2 rounded-2xl">
+            <button className=" w-[300px] bg-opacity-40 p-2 rounded-2xl text-secondary" style={{
+              padding: "0.4rem", 
+              backgroundColor: "rgba(0, 0, 0, 0.30)",
+            }}>
               Sign in with Google
             </button>
           </a>
