@@ -13,6 +13,7 @@ module.exports = app => {
     passport.authenticate('google'),
     (req, res) => {
       res.redirect('/');
+      
     }
   );
   app.get('/api/logout', (req, res) => {
