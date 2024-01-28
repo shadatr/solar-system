@@ -11,6 +11,7 @@ const cors = require('cors');
 // Enable CORS for all routes
 
 mongoose.connect(keys.mongoURI);
+mongoose.set('strictQuery', true)
 
 const app = express();
 
@@ -26,7 +27,6 @@ app.use(passport.session());
 app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 
 require('./routes/authRoutes')(app);
-
 
 if( process.env.NODE_ENV==='production'){
   app.use(express.static('client/build'));
