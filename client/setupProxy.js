@@ -3,11 +3,11 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 function serverProxy() {
   return [
     createProxyMiddleware('/auth/google', {
-      target: 'http://localhost:5000/',
+      target: 'https://solar-system-h7ph.onrender.com/',
       changeOrigin: true,
     }),
     createProxyMiddleware('/api/', {
-      target: 'http://localhost:5000/',
+      target: 'https://solar-system-h7ph.onrender.com/',
       changeOrigin: true,
     }),
   ];
