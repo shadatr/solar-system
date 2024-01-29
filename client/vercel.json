@@ -1,7 +1,12 @@
 {
     "rewrites": [
-      {"source": "/auth/google/(.*)", "destination": "/proxy.js"},
+      { "source": "/auth/(.*)", "destination": "https://solar-system-h7ph.onrender.com/auth/$1" },
+      { "source": "/api/(.*)", "destination": "https://solar-system-h7ph.onrender.com/api/$1" },
       {"source": "/(.*)", "destination": "/"}
+    ],
+    "headers": [
+      { "source": "/auth/(.*)", "headers": [{ "key": "host", "value": "solar-system-h7ph.onrender.com" }] },
+      { "source": "/api/(.*)", "headers": [{ "key": "host", "value": "solar-system-h7ph.onrender.com" }] }
     ]
   }
   
