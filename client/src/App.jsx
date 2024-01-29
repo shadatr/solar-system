@@ -9,16 +9,8 @@ import { Stars } from "@react-three/drei";
 import { planets } from "./components/planets";
 
 const App = ({ user, fetchUser }) => {
-  const externalLink = 'https://solar-system-plum-gamma.vercel.app/';
-
-  const openExternalLink = () => {
-    window.open(externalLink, '_system');
-    window.open('safari-https://solar-system-plum-gamma.vercel.app/', '_system');
-
-  };
   useEffect(() => {
     fetchUser();
-    openExternalLink()
   }, [fetchUser]);
 
 
