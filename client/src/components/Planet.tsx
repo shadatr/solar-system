@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { normal } from "../assets";
@@ -21,8 +21,10 @@ const Planet = ({ user, fetchUser, planet_name }) => {
     mesh.rotation.z += 0.005;
   });
 
-  const moonTexture = new TextureLoader().load(planet?.image);
-  const normalTexture = new TextureLoader().load(normal);
+  // const moonTexture = new TextureLoader().load(planet?.image);
+  // const normalTexture = new TextureLoader().load(normal);
+  const normalTexture = useMemo(() => new TextureLoader().load(normal), [normal]);
+  const moonTexture = useMemo(() => new TextureLoader().load(planet?.image), [planet?.image]);
 
   return (
     <mesh ref={planetRef} scale={[scaleFactor, scaleFactor, scaleFactor]}>
