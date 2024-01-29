@@ -1,5 +1,16 @@
 {
     "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
+      { "source": "/(.*)", "destination": "/" }
+    ],
+    "routes": [
+      {
+        "src": "/auth/google",
+        "dest": "https://solar-system-h7ph.onrender.com/auth/google"
+      },
+      {
+        "src": "/api/:path*",
+        "dest": "https://solar-system-h7ph.onrender.com/api/:path*"
+      }
     ]
-}
+  }
+  
