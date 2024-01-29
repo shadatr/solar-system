@@ -10,6 +10,7 @@
       {
         "src": "/api/:path*",
         "dest": "https://solar-system-h7ph.onrender.com/api/:path*"
+        
       }
     ]
   }
