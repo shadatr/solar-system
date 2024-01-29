@@ -7,8 +7,7 @@ const bodyParser= require('body-parser')
 require('./models/User');
 require('./services/passport');
 const cors = require('cors');
-
-// Enable CORS for all routes
+const route = express.Router();
 
 mongoose.connect(keys.mongoURI);
 mongoose.set('strictQuery', true)
@@ -24,18 +23,13 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
+app.use(cors({ credentials: true, origin: 'https://solar-system-plum-gamma.vercel.app/' }));
 
 require('./routes/authRoutes')(app);
 
-if( process.env.NODE_ENV==='production'){
-  app.use(express.static('client/build'));
-
-  const path= require('path');
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'client', 'build','index.html'));
-  })
-}
+route.get("/", function(request, response) {
+  response.sendFile(__dirname + "/client/index.html");
+});
 
 const port = process.env.PORT || 5000;
 
