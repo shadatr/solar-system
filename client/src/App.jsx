@@ -25,7 +25,7 @@ const App = ({ user, fetchUser }) => {
       ) : ""}
         {user ? (
           planets.map((planet) => (
-            <div className="flex flex-row h-screen">
+            <div className="flex lg:flex-row sm:flex-col h-screen">
               <Canvas camera={{ position: [0, 0, 30], rotation: [0, 0, 0] }}>
                 <pointLight
                   color={0xffffff}
@@ -37,11 +37,11 @@ const App = ({ user, fetchUser }) => {
                 <Planet key={planet.name} planet_name={planet.name} />
                 <OrbitControls enableZoom={false} />
               </Canvas>
-              <span className=" text-secondary flex flex-col items-center justify-center w-[800px] p-20 bg-secondary bg-opacity-5">
-                <h1 className="font-black text-[40px]">
+              <span className=" text-secondary flex flex-col items-center justify-center lg:w-[800px] lg:p-20 sm:p-10 bg-secondary bg-opacity-5">
+                <h1 className="font-black lg:text-[40px] sm:text-[25px]">
                 {planet.name}
                 </h1>
-                <p>
+                <p className=" lg:text-[16px] sm:text-[14px]">
                 {planet.description}
                 </p>
               </span>
