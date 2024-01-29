@@ -19,7 +19,7 @@ const App = ({ user, fetchUser }) => {
       
       <div className="flex flex-col ">
       {user ? (
-        <a href={`/api/logout`} className="fixed right-0 py-2 px-10 m-5 bg-secondary bg-opacity-30 text-secondary rounded-2xl" >
+        <a href={`/api/logout`} className="z-10 fixed right-0 py-2 px-10 m-5 bg-secondary bg-opacity-30 text-secondary rounded-2xl" >
           logout
         </a>
       ) : ""}
