@@ -1,17 +1,7 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ],
-    "routes": [
-      {
-        "src": "/auth/google",
-        "dest": "https://solar-system-h7ph.onrender.com/auth/google"
-      },
-      {
-        "src": "/api/:path*",
-        "dest": "https://solar-system-h7ph.onrender.com/api/:path*"
-        
-      }
+      {"source": "/auth/google/(.*)", "destination": "/proxy.js"},
+      {"source": "/(.*)", "destination": "/"}
     ]
   }
   
