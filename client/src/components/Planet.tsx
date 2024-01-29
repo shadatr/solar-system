@@ -21,10 +21,8 @@ const Planet = ({ user, fetchUser, planet_name }) => {
     mesh.rotation.z += 0.005;
   });
 
-  // const moonTexture = new TextureLoader().load(planet?.image);
-  // const normalTexture = new TextureLoader().load(normal);
-  const normalTexture = useMemo(() => new TextureLoader().load(normal), [normal]);
-  const moonTexture = useMemo(() => new TextureLoader().load(planet?.image), [planet?.image]);
+  const moonTexture = new TextureLoader().load(planet?.image);
+  const normalTexture = new TextureLoader().load(normal);
 
   return (
     <mesh ref={planetRef} scale={[scaleFactor, scaleFactor, scaleFactor]}>
