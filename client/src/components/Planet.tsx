@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import React, { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { normal } from "../assets";
 import { planets } from "./planets";
@@ -11,6 +11,8 @@ import { fetchUser } from "../actions";
 const Planet = ({ user, fetchUser, planet_name }) => {
   const planetRef = useRef<THREE.Mesh>(null);
   const planet = planets.find((i) => i.name === planet_name);
+  const { size } = useThree(); 
+  const scaleFactor = size.width <600 ? 1.2:1.8; 
 
   useFrame(() => {
     const mesh = planetRef.current as THREE.Mesh;
@@ -23,7 +25,7 @@ const Planet = ({ user, fetchUser, planet_name }) => {
   const normalTexture = new TextureLoader().load(normal);
 
   return (
-    <mesh ref={planetRef} scale={[1.8, 1.8, 1.8]}>
+    <mesh ref={planetRef} scale={[scaleFactor, scaleFactor, scaleFactor]}>
       {!user && (
         <Html>
           <a
